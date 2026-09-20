@@ -1,0 +1,13 @@
+{ config, pkgs, lib, ... }:
+
+{
+  environment.systemPackages = [ pkgs.lact ];
+
+  systemd.packages = [ pkgs.lact ];
+
+  systemd.services.lactd = {
+    wantedBy = [ "multi-user.target" ];
+    restart = "on-failure";
+    restartSec = 5;
+  };
+}
