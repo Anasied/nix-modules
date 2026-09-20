@@ -10,12 +10,12 @@
     };
 
     zen-browser = {
-      url = "github:youwen5/zen-browser-flake/refs/tags/v1.0.0";
+      url = "github:youwen5/zen-browser-flake/refs/heads/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia/refs/tags/v5.0.0";
+      url = "github:noctalia-dev/noctalia/refs/heads/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

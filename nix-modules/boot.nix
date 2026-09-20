@@ -2,9 +2,7 @@
 
 let
   timeout = 10;
-  defaultEntry = "NixOs";
   windowsLabel = "Windows 11";
-  espDevice = "/dev/nvme0n1p3";
 in
 {
   boot.loader = {
@@ -23,9 +21,5 @@ in
 
   boot.loader.timeout = timeout;
 
-  fileSystems."/boot" = {
-    device = espDevice;
-    fsType = "vfat";
-    options = [ "fmask=0077" "dmask=0077" ];
-  };
+  system.nixos.label = "NixOS";
 }

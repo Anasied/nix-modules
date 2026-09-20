@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./modules/hardware-gpu.nix
+    ./hardware-configuration.nix
     ./modules/boot.nix
     ./modules/lact.nix
     ./modules/openrgb.nix
