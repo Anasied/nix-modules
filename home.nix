@@ -4,6 +4,11 @@
   imports = [
     ./modules/vicinae.nix
     ./modules/ghostty.nix
+    ./modules/zed.nix
+    ./modules/yazi.nix
+    ./modules/packages.nix
+    ./modules/shell.nix
+    ./modules/vim.nix
   ];
 
   home.username = "anasied";

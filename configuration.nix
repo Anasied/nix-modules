@@ -3,15 +3,14 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./modules/hardware-gpu.nix
     ./modules/boot.nix
     ./modules/lact.nix
     ./modules/openrgb.nix
     ./modules/niri.nix
     ./modules/noctalia.nix
     ./modules/llama-cpp.nix
-    ./modules/vim.nix
     ./modules/dev.nix
-    ./modules/packages.nix
   ];
 
   networking.hostName = "nixos";
@@ -26,6 +25,11 @@
   };
 
   security.sudo.wheelNeedsPassword = true;
+
+  programs.zsh.enable = true;
+  users.users.anasied.shell = pkgs.zsh;
+
+  virtualisation.docker.enable = true;
 
   environment.systemPackages = with pkgs; [
     git

@@ -2,24 +2,21 @@
 
 let
   timeout = 10;
-  windowsLabel = "Windows 11";
 in
 {
   boot.loader = {
-    systemd-boot = {
+    efi.canTouchEfiVariables = true;
+
+    grub = {
       enable = true;
-      extraEntries = {
-        windows = {
-          title = windowsLabel;
-          efi = "/EFI/Microsoft/Boot/bootmgfw.efi";
-        };
-      };
+      devices = [ "nodev" ];
+      efiSupport = true;
+      useOSProber = true;
       configurationLimit = 10;
     };
-    efi.canTouchEfiVariables = true;
-  };
 
-  boot.loader.timeout = timeout;
+    timeout = timeout;
+  };
 
   system.nixos.label = "NixOS";
 }

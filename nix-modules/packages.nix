@@ -1,22 +1,15 @@
-{ config, pkgs, inputs, lib, ... }:
+{ pkgs, inputs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-
+  home.packages = [
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.zen-browser
 
-    vicinae
-
-    zed-editor
-
-    vesktop
-
-    obsidian
-
-    yazi
-
-    opencode
+    pkgs.ayugram-desktop
+    pkgs.vicinae
+    pkgs.zed-editor
+    pkgs.yazi
+    pkgs.opencode
+    pkgs.vesktop
+    pkgs.obsidian
   ];
-
-  virtualisation.docker.enable = true;
 }
