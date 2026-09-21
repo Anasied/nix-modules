@@ -1,21 +1,19 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-  hardware.cpu.amd.updateMicrocode = true;
-  hardware.enableRedistributableFirmware = true;
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.kernelModules = [ "amdgpu" "kvm-amd" ];
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages = with pkgs; [
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
   };
 
-  boot.kernelPackages = pkgs.linuxPackages;
+  hardware.cpu.amd.updateMicrocode = true;
+  hardware.enableRedistributableFirmware = true;
 
-  boot.kernelParams = [
-    "amdgpu.ppfeaturemask=0xffffffff"
-  ];
+  hardware.amdgpu.opencl.enable = true;
+  hardware.amdgpu.overdrive.enable = true;
+
 }

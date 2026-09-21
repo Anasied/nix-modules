@@ -5,6 +5,8 @@
     ./hardware-configuration.nix
     ./modules/hardware-gpu.nix
     ./modules/boot.nix
+    ./modules/audio.nix
+    ./modules/fonts.nix
     ./modules/lact.nix
     ./modules/openrgb.nix
     ./modules/niri.nix
