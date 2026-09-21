@@ -13,8 +13,8 @@
     clippy
 
     nodejs_22
-    nodePackages.pnpm
-    nodePackages.typescript
+    pnpm
+    typescript
 
     gcc
     clang

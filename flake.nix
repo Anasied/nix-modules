@@ -15,10 +15,8 @@
     };
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia/refs/heads/main";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:noctalia-dev/noctalia/refs/heads/cachix";
     };
-
   };
 
   outputs = { self, nixpkgs, home-manager, zen-browser, noctalia, ... }@inputs:

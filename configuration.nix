@@ -31,6 +31,11 @@
 
   virtualisation.docker.enable = true;
 
+  services.lact.enable = true;
+  hardware.amdgpu.overdrive.enable = true;
+
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
     git
     curl
