@@ -16,6 +16,7 @@
 
     noctalia = {
       url = "github:noctalia-dev/noctalia/refs/heads/cachix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

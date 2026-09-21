@@ -7,7 +7,6 @@
     ./modules/boot.nix
     ./modules/audio.nix
     ./modules/fonts.nix
-    ./modules/lact.nix
     ./modules/openrgb.nix
     ./modules/niri.nix
     ./modules/noctalia.nix
@@ -32,9 +31,6 @@
   users.users.anasied.shell = pkgs.zsh;
 
   virtualisation.docker.enable = true;
-
-  services.lact.enable = true;
-  hardware.amdgpu.overdrive.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 

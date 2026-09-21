@@ -16,4 +16,6 @@
   hardware.amdgpu.opencl.enable = true;
   hardware.amdgpu.overdrive.enable = true;
 
+  services.lact.enable = true;
+
 }
