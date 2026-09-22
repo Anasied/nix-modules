@@ -34,6 +34,11 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  swapDevices = [{
+  device = "/var/lib/swapfile";
+  size = 4096;
+  }];
+
   environment.systemPackages = with pkgs; [
     git
     curl

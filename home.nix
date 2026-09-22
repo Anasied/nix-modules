@@ -9,6 +9,7 @@
     ./modules/packages.nix
     ./modules/shell.nix
     ./modules/vim.nix
+    ./modules/niri-conf.nix
   ];
 
   home.username = "anasied";

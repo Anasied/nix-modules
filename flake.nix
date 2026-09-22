@@ -10,14 +10,14 @@
     };
 
     zen-browser = {
-      url = "github:youwen5/zen-browser-flake/refs/heads/main";
+      url = "github:youwen5/zen-browser-flake/refs/heads/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     noctalia = {
       url = "github:noctalia-dev/noctalia/refs/heads/cachix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
+
   };
 
   outputs = { self, nixpkgs, home-manager, zen-browser, noctalia, ... }@inputs:

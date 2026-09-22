@@ -24,8 +24,5 @@ in
       autoStart = true;
       target = "graphical-session.target";
     };
-
-    enableFirefoxIntegration = true;
-
   };
 }

@@ -14,8 +14,9 @@
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-gnome
     ];
-    config.common.default = [ "gnome" "gtk" ];
+    config.common.default = "gnome";
   };
 
   security.polkit.enable = true;
+	
 }

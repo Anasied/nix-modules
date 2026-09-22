@@ -10,6 +10,12 @@ let
     window-padding-y = 6;
     cursor-style = "block";
     shell-integration = "detect";
+
+    copy-on-select = "clipboard";
+
+    keybind = [
+      "ctrl+v=paste_from_clipboard"
+    ];
   };
 in
 {
