@@ -2,14 +2,14 @@
 ## 1. Разметка диска
 lsblk
 
-sudo mkfs.ext4 -L NIXROOT /dev/nvme1n1p2
+sudo mkfs.ext4 -L NIXROOT /dev/nvmeXnXpX
 
 ## 2. Монтирование (ESP Windows → /boot)
-sudo mount /dev/nvme1n1p2 /mnt
+sudo mount /dev/nvmeXnXpX /mnt
 
 sudo mkdir -p /mnt/boot
 
-sudo mount /dev/nvme0n1p3 /mnt/boot
+sudo mount /dev/nvmeXnXpX /mnt/boot
 
 ## 3. Генерация hardware-configuration.nix
 sudo nixos-generate-config --root /mnt
@@ -19,20 +19,13 @@ nix-shell -p git
 
 git clone https://github.com/Anasied/nix-modules.git /tmp/cfg
 
-# Переименовываем папку перед копированием
-mv /tmp/cfg/nix-modules /tmp/cfg/modules
+## Убираем Git отслежку
+rm -rf /tmp/cfg/.git
 
 # Копируем конфиг
 sudo cp -r /tmp/cfg/. /mnt/etc/nixos/
 
-## 5. Git Подготовка
-# Разрешаем Git работать с папкой, принадлежащей root
-git config --global --add safe.directory /mnt/etc/nixos
-
-# Добавляем сгенерированный файл в индекс Git
-sudo git -C "/mnt/etc/nixos" add "hardware-configuration.nix"
-
-## 6. Установка
+## 5. Установка
 # Включаем flakes для текущей сессии установщика
 sudo mkdir -p /etc/nix
 
@@ -46,5 +39,5 @@ sudo umount -R /mnt
 
 reboot
 
-## 7. Для будущих исправлений
+## 6. Для будущих исправлений
 sudo nixos-rebuild switch --flake /etc/nixos#nixos
